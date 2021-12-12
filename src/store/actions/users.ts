@@ -9,7 +9,6 @@ export const fetchUsersData = () => {
         try {
             dispatch({type: UsersActionTypes.FETCH_USERS});
             const response = await axios.get(`${mainURL}`);
-            console.log(response.data);
             dispatch({type: UsersActionTypes.FETCH_USERS_SUCCESS, payload:response.data})
         } catch (e) {
             dispatch({
@@ -28,7 +27,6 @@ export const deleteUserData = (userId:number) => {
             await axios.delete(`${mainURL + userId}`);
             const deletedUser =  await axios.get(`${mainURL + userId}`);
             dispatch({type: UsersActionTypes.DELETE_USER_DATA});
-            console.log(deletedUser.data);
 
             const response = await axios.get(`${mainURL}`);
             dispatch({type: UsersActionTypes.FETCH_USERS_SUCCESS, payload:response.data});

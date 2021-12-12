@@ -158,13 +158,13 @@ const CreateUser : React.FC = () => {
         
         if(userId){
             if (!errors.nameErr && !errors.surnameErr && !errors.emailErr && !errors.phoneErr){
-                console.log(user);
+                
                 editUserData(userId, user);
                 navigate('/')
             }
         } else {
             if (!errors.nameErr && !errors.surnameErr && !errors.emailErr && !errors.phoneErr){
-                console.log(state);
+                
                 createUser(state);
                 navigate('/')
             }

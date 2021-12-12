@@ -8,7 +8,6 @@ export const fetchUserData = (userId: string) => {
         try {
             dispatch({type: UserActionTypes.FETCH_USER});
             const response = await axios.get(`${mainURL + userId}`);
-            // console.log(response.data);
             dispatch({type: UserActionTypes.FETCH_USER_SUCCESS, payload:response.data})
         } catch (e) {
             dispatch({
@@ -27,7 +26,6 @@ export const createUser = (data:object) => {
                 `${mainURL}`,
                 data
             );
-            console.log(response.data);
             dispatch({type: UserActionTypes.CREATE_OR_EDIT_USER_SUCCESS})
         } catch (e) {
             dispatch({
@@ -46,7 +44,6 @@ export const editUserData = (userId: string, data:object) => {
                 `${mainURL + userId}`,
                 data
             );
-            console.log(response.data);
             dispatch({type: UserActionTypes.CREATE_OR_EDIT_USER_SUCCESS})
         } catch (e) {
             dispatch({
